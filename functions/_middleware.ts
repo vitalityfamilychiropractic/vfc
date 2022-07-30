@@ -1,6 +1,6 @@
 import mailchannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
 
-export const onRequest = mailchannelsPlugin({
+export const onRequest = (env) => mailchannelsPlugin({
   personalizations: [
     {
       to: [{ name: env.CONTACT_FORM_TO_NAME, email: env.CONTACT_FORM_TO_EMAIL }],
@@ -11,5 +11,5 @@ export const onRequest = mailchannelsPlugin({
     new Response(null, {
       status: 302,
       headers: { Location: "/thank-you" },
-    }), env
+    }),
 });
