@@ -1,6 +1,6 @@
 import mailchannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
 
-export const onRequest = (env) => mailchannelsPlugin({
+export const onRequest = mailchannelsPlugin(async (env) => {
   personalizations: [
     {
       to: [{ name: env.CONTACT_FORM_TO_NAME, email: env.CONTACT_FORM_TO_EMAIL }],
