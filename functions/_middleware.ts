@@ -1,10 +1,10 @@
 import mailChannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
 
-export const onRequest: PagesFunction(env) = mailChannelsPlugin({
+export const onRequest: PagesFunction = mailChannelsPlugin({
   personalizations: [
     {
       to: [{
-        name: env.CONTACT_FORM_TO_NAME,
+        name: CONTACT_FORM_TO_NAME,
         email: env.CONTACT_FORM_TO_EMAIL,
       }],
     },
