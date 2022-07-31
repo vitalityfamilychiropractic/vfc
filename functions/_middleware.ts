@@ -5,14 +5,14 @@ export const onRequest = (context) => {
     personalizations: [
       {
         to: [{
-          name: context.env.CONTACT_FORM_TO_NAME,
-          email: context.env.CONTACT_FORM_TO_EMAIL,
+          name: context.env.EMAIL_FORM_TO_NAME,
+          email: context.env.EMAIL_FORM_TO_EMAIL,
         }],
       },
     ],
     from: {
-      name: context.env.CONTACT_FORM_FROM_NAME,
-      email: context.env.CONTACT_FORM_FROM_EMAIL,
+      name: context.env.EMAIL_FORM_FROM_NAME,
+      email: context.env.EMAIL_FORM_FROM_EMAIL,
     },
     respondWith: () => {
       return new Response(
