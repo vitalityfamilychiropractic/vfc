@@ -1,3 +1,5 @@
 $(function() {
-  document.getElementById('build').innerHTML = await fetch('/buildinfo');
-}
+  $.get('/buildinfo', function( data ) {
+    $('#build').html( data );
+  });
+});
