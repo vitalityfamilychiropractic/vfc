@@ -1,5 +1,3 @@
 $(function(context) {
-
-  document.getElementById('build').innerHTML = context.env.CF_PAGES_BRANCH + ' ' + context.env.CF_PAGES_COMMIT_SHA;
-
-}
+  $('#build').innerHTML = context.env.CF_PAGES_BRANCH + ' ' + context.env.CF_PAGES_COMMIT_SHA;
+});
