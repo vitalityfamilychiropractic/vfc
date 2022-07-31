@@ -1,3 +1,3 @@
-$(function(context) {
-  $('#build').innerHTML = context.env.CF_PAGES_BRANCH + ' ' + context.env.CF_PAGES_COMMIT_SHA;
-});
+$(function() {
+  document.getElementById('build').innerHTML = await fetch('/buildinfo');
+}
