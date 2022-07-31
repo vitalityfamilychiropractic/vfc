@@ -4,7 +4,7 @@ export const onRequest: PagesFunction = mailChannelsPlugin({
   personalizations: [
     {
       to: [{
-        name: CONTACT_FORM_TO_NAME,
+        name: env.CONTACT_FORM_TO_NAME,
         email: env.CONTACT_FORM_TO_EMAIL,
       }],
     },
