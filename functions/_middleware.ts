@@ -1,21 +1,21 @@
-import mailchannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
+import mailChannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
 
-export default {
-  async fetch(request, env) {
-    mailchannelsPlugin({
-      personalizations: [
-        {
-          to: [{ name: env.CONTACT_FORM_TO_NAME, email: env.CONTACT_FORM_TO_EMAIL }],
-        },
-      ],
-      from: { name: env.CONTACT_FORM_FROM_NAME, email: env.CONTACT_FORM_FROM_EMAIL },
-      respondWith: () =>
-        new Response(null, {
-          status: 302,
-          headers: { Location: "/thank-you" },
-        }),
-    });
-
-    return env.ASSETS.fetch(request);
-  }
-}
+export const onRequest: PagesFunction(env) = mailChannelsPlugin({
+  personalizations: [
+    {
+      to: [{
+        name: env.CONTACT_FORM_TO_NAME,
+        email: env.CONTACT_FORM_TO_EMAIL,
+      }],
+    },
+  ],
+  from: {
+    name: env.CONTACT_FORM_FROM_NAME,
+    email: env.CONTACT_FORM_FROM_EMAIL,
+  },
+  respondWith: () => {
+    return new Response(
+      `Thank you for submitting your enquiry. A member of the team will be in touch shortly.`
+    );
+  },
+});
